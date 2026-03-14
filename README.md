@@ -1,4 +1,6 @@
-Distributed Rate Limiter (Spring Boot + Redis)
+# Distributed Rate Limiter (Spring Boot + Redis)
+
+## Overview
 
 A distributed API rate limiting system built using Spring Boot and
 Redis.
@@ -11,13 +13,13 @@ consistently across multiple application instances.
 
 ------------------------------------------------------------------------
 
-ARCHITECTURE
+## Architecture
 
-![Architecture](architecture.png)
+Client Request --> RateLimiterInterceptor --> RateLimiterService --> Redis (Counter Store) --> Controller
 
 ------------------------------------------------------------------------
 
-FEATURES
+## Features
 
 -   Distributed rate limiting using Redis
 -   Middleware-based request interception
@@ -28,7 +30,7 @@ FEATURES
 
 ------------------------------------------------------------------------
 
-TECH STACK
+## Tech Stack
 
 -   Java
 -   Spring Boot
@@ -38,7 +40,7 @@ TECH STACK
 
 ------------------------------------------------------------------------
 
-HOW RATE LIMITING WORKS
+## How Rate Limiting Works
 
 This system implements a Fixed Window Rate Limiting strategy.
 
@@ -58,7 +60,7 @@ Redis automatically resets the counter after 60 seconds using TTL.
 
 ------------------------------------------------------------------------
 
-REQUEST FLOW
+## Request Flow
 
 1.  Client sends request with X-User-Id header
 2.  RateLimiterInterceptor intercepts the request
@@ -68,7 +70,7 @@ REQUEST FLOW
 
 ------------------------------------------------------------------------
 
-API EXAMPLE
+## API Example
 
 Request: GET /api/test
 
@@ -82,7 +84,7 @@ Rate Limit Exceeded: 429 Too Many Requests
 
 ------------------------------------------------------------------------
 
-RUNNING THE PROJECT
+## Running the Project
 
 1.  Start Redis
 
@@ -98,7 +100,7 @@ curl -H “X-User-Id: 123” http://localhost:8080/api/test
 
 ------------------------------------------------------------------------
 
-PROJECT STRUCTURE
+## Project Structure
 
 src/main/java/com/tanish/ratelimiter
 
@@ -114,7 +116,7 @@ model RateLimitResult.java
 
 ------------------------------------------------------------------------
 
-DOCKER SETUP
+## Docker Setup
 
 Redis runs inside Docker using docker-compose.
 
@@ -124,7 +126,7 @@ services: redis: image: redis:7-alpine ports: - “6379:6379”
 
 ------------------------------------------------------------------------
 
-POSSIBLE IMPROVEMENTS
+## Possible Improvements
 
 -   Sliding Window Rate Limiting
 -   Token Bucket Algorithm
@@ -133,7 +135,7 @@ POSSIBLE IMPROVEMENTS
 
 ------------------------------------------------------------------------
 
-LEARNING OUTCOMES
+## Learning Outcomes
 
 This project demonstrates:
 
