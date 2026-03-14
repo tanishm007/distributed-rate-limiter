@@ -15,7 +15,7 @@ consistently across multiple application instances.
 
 ## Architecture
 
-Client Request --> RateLimiterInterceptor --> RateLimiterService --> Redis (Counter Store) --> Controller
+![Architecture](architecture.png)
 
 ------------------------------------------------------------------------
 
